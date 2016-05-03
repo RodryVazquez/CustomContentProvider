@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    tools:context="com.example.rodrigo.customcontentprovider.MainActivity">
+
+    <EditText
+        android:id="@+id/edtName"
+        android:layout_gravity="center"
+        android:textSize="22sp"
+        android:layout_marginTop="22dp"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter name" />
+
+    <EditText
+        android:id="@+id/edtNickName"
+        android:layout_gravity="center"
+        android:textSize="22sp"
+        android:layout_marginTop="22dp"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter nickname" />
+
+    <Button
+        android:id="@+id/btnAddNew"
+        android:text="Add new"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#fafafa"
+        android:layout_gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnShowAll"
+        android:text="Show All"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#fafafa"
+        android:layout_gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnDeleteAll"
+        android:text="Delete all"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:textColor="#fafafa"
+        android:layout_gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
