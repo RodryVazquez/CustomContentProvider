@@ -12,6 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 
 import java.util.HashMap;
 
@@ -132,10 +133,21 @@ public class CustomContentProvider extends ContentProvider {
         return cursor;
     }
 
+    //Patron vnd.android.cursor.dir | vnd.android.cursor.item
     @Nullable
     @Override
     public String getType(Uri uri) {
-        return null;
+        //retornamos el tipo de datos que retorna el content provider
+        switch(uriMatcher.match(uri)){
+            //Listado de registros
+            case NICKNAME:
+                return "vnd.android.cursor.dir/vnd.example.nicknames";
+            //Registro unico
+            case NICKNAME_ID:
+                return "vnd.android.cursor.item/vnd.example.nicknames";
+            default:
+                throw new IllegalArgumentException("Unsupported URI :" + uri);
+        }
     }
 
     @Nullable
@@ -153,11 +165,45 @@ public class CustomContentProvider extends ContentProvider {
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        return 0;
+        int count = 0;
+
+        switch (uriMatcher.match(uri)){
+            case NICKNAME:
+                //Borramos todos los elementos de la tabla
+                count = database.delete(TABLE_NAME,selection,selectionArgs);
+                break;
+            case NICKNAME_ID:
+                String id = uri.getLastPathSegment();
+                count = database.delete(TABLE_NAME,ID +" = " + id +(!TextUtils.isEmpty(selection) ? "AND (" + selection + ")" : ""),selectionArgs);
+                break;
+
+            default:
+                throw  new IllegalArgumentException("Unsupported URI " + uri);
+        }
+
+        getContext().getContentResolver().notifyChange(uri,null);
+        return count;
     }
 
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        return 0;
+        int count = 0;
+
+        switch (uriMatcher.match(uri)){
+            case NICKNAME:
+                //Borramos todos los elementos de la tabla
+                count = database.update(TABLE_NAME,values,selection,selectionArgs);
+                break;
+            case NICKNAME_ID:
+                String id = uri.getLastPathSegment();
+                count = database.update(TABLE_NAME, values,ID +" = " + id +(!TextUtils.isEmpty(selection) ? "AND (" + selection + ")" : ""),selectionArgs);
+                break;
+
+            default:
+                throw  new IllegalArgumentException("Unsupported URI " + uri);
+        }
+
+        getContext().getContentResolver().notifyChange(uri,null);
+        return count;
     }
 }
