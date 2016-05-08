@@ -15,5 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--Registramos el content provider-->
+        <provider
+            android:authorities="com.example.rodrigo.customcontentprovider.contentprovider"
+            android:name=".ContentProvider.CustomContentProvider">
+        </provider>
     </application>
 </manifest>

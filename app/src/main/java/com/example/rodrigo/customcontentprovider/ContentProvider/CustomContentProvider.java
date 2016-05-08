@@ -22,9 +22,9 @@ import java.util.HashMap;
 public class CustomContentProvider extends ContentProvider {
 
     //Campos para el contentProvider
-    static final String PROVIDER_NAME = "com.rodrigovazquez.provider";
+    static final String PROVIDER_NAME = "com.example.rodrigo.customcontentprovider.contentprovider";
     static final String URL = "content://" + PROVIDER_NAME + "/nicknames";
-    static final Uri CONTENT_URI = Uri.parse(URL);
+    public static final Uri CONTENT_URI = Uri.parse(URL);
 
     //Valores utilizados por el content Uri
     static final int NICKNAME = 1;
@@ -46,15 +46,15 @@ public class CustomContentProvider extends ContentProvider {
 
 
     //region DATABASE
-    static final String ID = "id";
-    static final String NAME = "name";
-    static final String NiCK_NAME = "nickname";
+    public static final String ID = "id";
+    public static final String NAME = "name";
+    public static final String NICK_NAME = "nickname";
 
     private SQLiteDatabase database;
     static final String DATABASE_NAME = "NicknamesDirectory";
     static final String TABLE_NAME = "Nicknames";
     static final int DATABASE_VERSION = 1;
-    static final String CREATE_TABLE = "CREATE TABLE" + TABLE_NAME +
+    static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME +
             "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "name TEXT NOT NULL," +
             "nickname TEXT NOT NULL);";
