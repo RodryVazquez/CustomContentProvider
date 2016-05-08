@@ -14,7 +14,7 @@
         android:layout_marginTop="22dp"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:hint="Enter name" />
+        android:hint="@string/hint_name" />
 
     <EditText
         android:id="@+id/edtNickName"
@@ -23,11 +23,11 @@
         android:layout_marginTop="22dp"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:hint="Enter nickname" />
+        android:hint="@string/hint_nickname" />
 
     <Button
         android:id="@+id/btnAddNew"
-        android:text="Add new"
+        android:text="@string/btn_text_add"
         android:layout_marginTop="20dp"
         android:background="@color/colorPrimary"
         android:textColor="#fafafa"
@@ -37,7 +37,7 @@
 
     <Button
         android:id="@+id/btnShowAll"
-        android:text="Show All"
+        android:text="@string/btn_text_show_all"
         android:layout_marginTop="10dp"
         android:background="@color/colorPrimary"
         android:textColor="#fafafa"
@@ -47,7 +47,7 @@
 
     <Button
         android:id="@+id/btnDeleteAll"
-        android:text="Delete all"
+        android:text="@string/btn_text_delete"
         android:layout_marginTop="10dp"
         android:background="@color/colorPrimary"
         android:textColor="#fafafa"

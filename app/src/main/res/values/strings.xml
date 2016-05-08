@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CustomContentProvider</string>
+    <string name="hint_name">Enter name</string>
+    <string name="hint_nickname">Enter nickname</string>
+    <string name="btn_text_add">Add new</string>
+    <string name="btn_text_show_all">Show All</string>
+    <string name="btn_text_delete">Delete all</string>
 </resources>
